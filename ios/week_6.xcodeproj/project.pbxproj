@@ -42,6 +42,9 @@
 		6FCFDFA2E060346A556D5C5D /* Pods-week_6.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-week_6.debug.xcconfig"; path = "Target Support Files/Pods-week_6/Pods-week_6.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = week_6/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A967A3D34F9135E61C56A2B4 /* Pods-week_6.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-week_6.release.xcconfig"; path = "Target Support Files/Pods-week_6/Pods-week_6.release.xcconfig"; sourceTree = "<group>"; };
+		C38DEE1327720936005ECE14 /* BackIssuesBB_reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackIssuesBB_reg.otf; sourceTree = "<group>"; };
+		C38DEE1427720936005ECE14 /* BackIssuesBB_ital.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackIssuesBB_ital.otf; sourceTree = "<group>"; };
+		C38DEE1527720936005ECE14 /* BackIssuesBB_boldital.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackIssuesBB_boldital.otf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F701EBA66C3C08C0DCAF624E /* Pods-week_6-week_6Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-week_6-week_6Tests.debug.xcconfig"; path = "Target Support Files/Pods-week_6-week_6Tests/Pods-week_6-week_6Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,7 +117,6 @@
 				F701EBA66C3C08C0DCAF624E /* Pods-week_6-week_6Tests.debug.xcconfig */,
 				621A79AB3A9EDA1ACAE36970 /* Pods-week_6-week_6Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -128,6 +130,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C38DEE1227720936005ECE14 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* week_6 */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* week_6Tests */,
@@ -147,6 +150,17 @@
 				00E356EE1AD99517003FC87E /* week_6Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C38DEE1227720936005ECE14 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C38DEE1327720936005ECE14 /* BackIssuesBB_reg.otf */,
+				C38DEE1427720936005ECE14 /* BackIssuesBB_ital.otf */,
+				C38DEE1527720936005ECE14 /* BackIssuesBB_boldital.otf */,
+			);
+			name = Fonts;
+			path = ../src/assets/Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -561,7 +575,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 ";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -627,7 +641,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 ";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
