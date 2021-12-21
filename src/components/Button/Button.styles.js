@@ -1,33 +1,31 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
+import colors from '../../styles/colors';
 
 export default {
- default: StyleSheet.create({
-container: {
-    margin: 5,
-    backgroundColor: 'blue',
-    padding: 5,
-    borderRadius: 10,
-    alignItems: 'center',
-},
-label: { 
-    color: 'white',
-    fontWeight: 'bold' ,
-},
-
-    }),
- Outline: StyleSheet.create({
+  darkTheme: StyleSheet.create({
     container: {
-        margin: 5,
-        borderWidth: 1,
-        borderColor: 'blue',
-        padding: 5,
-        borderRadius: 10,
-        alignItems: 'center',
+      margin: 5,
+      backgroundColor: colors.darkTheme.primary,
+      padding: 5,
+      borderRadius: 10,
+      alignItems: 'center',
     },
-    label: { 
-        color: 'blue',
-        fontWeight: 'bold' ,
-       
+    label: {
+      color: colors.darkTheme.secondary,
+      fontWeight: 'bold',
     },
-            })
-}
+  }),
+  lightTheme: StyleSheet.create({
+    container: {
+      margin: 5,
+      backgroundColor: colors.lightTheme.primary,
+      padding: 5,
+      borderRadius: 10,
+      alignItems: 'center',
+    },
+    label: {
+      color: colors.lightTheme.secondary,
+      fontWeight: 'bold',
+    },
+  }),
+};
