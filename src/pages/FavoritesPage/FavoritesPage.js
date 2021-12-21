@@ -5,9 +5,6 @@ const FavoritesPage = () => {
   return (
     <SafeAreaView>
       <Text style={{color: 'black'}}>Favorites page</Text>
-      <Text style={{color: 'black'}}>
-        lkasjdhflkjasdgfljahsdgfljashdgflkjsadf
-      </Text>
     </SafeAreaView>
   );
 };
