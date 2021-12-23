@@ -5,15 +5,19 @@ import {
   ActivityIndicator,
   View,
   Alert,
-  FlatList,
+  useWindowDimensions,
+  Image,
 } from 'react-native';
-import Config from 'react-native-config';
 import {useRoute} from '@react-navigation/native';
 
+import Config from 'react-native-config';
+import Html from 'react-native-render-html';
+
 import useFetch from '../../hooks/useFetch/useFetch';
-import ComicDetail from '../../components/ComicDetail/ComicDetail';
+// import ComicDetail from '../../components/ComicDetail/ComicDetail';
 
 const DetailPage = () => {
+  const {width} = useWindowDimensions();
   const route = useRoute();
   const {id} = route.params;
   const {
@@ -23,7 +27,6 @@ const DetailPage = () => {
   } = useFetch(
     `${Config.API_URL}/comics/${id}?ts=1&apikey=${Config.API_KEY}&hash=${Config.API_HASH}`,
   );
-  console.log(id);
 
   if (loading) {
     <View>
@@ -33,26 +36,44 @@ const DetailPage = () => {
 
   if (error) {
     Alert.alert('Hata');
-    console.log(error.message);
   }
 
   if (!comicDetail) {
     return null;
   }
 
-  console.log(comicDetail);
+  const source = {
+    html: `<p>Details: ${comicDetail.map(data =>
+      data.textObjects.map(t => t.text),
+    )}</p>`,
+  };
+
   return (
     <SafeAreaView>
-      <Text>DetailPage Page</Text>
-      {comicDetail.map(data => (
-        <View>
+      {comicDetail.map((data, k) => (
+        <View key={k}>
           <Text>{data.title}</Text>
-          <Text>{data.description}</Text>
-          <Text>
-            {data.characters.items.map(n => (
-              <Text>{n.name}</Text>
-            ))}
-          </Text>
+          <Image
+            style={{width: 200, height: 200}}
+            source={{uri: `${data.thumbnail.path}.jpg`}}
+          />
+          {data.textObjects ? (
+            <Html contentWidth={width} source={source} />
+          ) : (
+            <Text>No detail</Text>
+          )}
+          {data.characters.length !== 0 ? (
+            !!data && (
+              <Text>
+                Characters:{' '}
+                {data.characters.items.map((n, i) => (
+                  <Text key={i}>{n.name}</Text>
+                ))}
+              </Text>
+            )
+          ) : (
+            <Text>There is no character.</Text>
+          )}
         </View>
       ))}
     </SafeAreaView>
