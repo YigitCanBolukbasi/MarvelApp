@@ -9,7 +9,7 @@ import {useNavigation} from '@react-navigation/native';
 const MainPage = () => {
   const navigation = useNavigation();
   const {data} = useFetch(
-    `${Config.API_URL}/comics?format=comic&formatType=comic&ts=1&apikey=${Config.API_KEY}&hash=${Config.API_HASH}`,
+    `https://gateway.marvel.com:443/v1/public/comics?format=comic&formatType=comic&ts=1&apikey=2bf3b8fe6dedde5d3df4920e6df21214&hash=3daa12a3fa29fab4e305a83ef7ef09ec`,
   );
   // const {data: characters} = useFetch(
   //   `${Config.API_URL}/characters?comics=1749&ts=1&apikey=2bf3b8fe6dedde5d3df4920e6df21214&hash=3daa12a3fa29fab4e305a83ef7ef09ec`,
@@ -22,9 +22,10 @@ const MainPage = () => {
   const renderComicCard = ({item}) => (
     <ComicCard comic={item} onPress={handleComicDetail} />
   );
+  console.log(data);
   return (
     <SafeAreaView>
-      <FlatList data={data} renderItem={renderComicCard} />
+      <FlatList data={data} renderItem={renderComicCard} numColumns={2} />
     </SafeAreaView>
   );
 };
