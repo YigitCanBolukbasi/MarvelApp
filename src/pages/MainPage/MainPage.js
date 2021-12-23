@@ -20,7 +20,7 @@ const MainPage = () => {
   };
 
   const renderComicCard = ({item}) => (
-    <ComicCard comic={item} onPress={handleComicDetail} />
+    <ComicCard comic={item} onPress={() => handleComicDetail(item.id)} />
   );
   console.log(data);
   return (
