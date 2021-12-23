@@ -11,7 +11,7 @@ const ComicCard = ({comic, onPress}) => {
         source={{uri: `${comic.thumbnail.path}.jpg`}}
       />
       <View>
-        <Text>{comic.title}</Text>
+        <Text style={{color: 'black'}}>{comic.title}</Text>
       </View>
     </TouchableOpacity>
   );
