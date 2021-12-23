@@ -1,17 +1,17 @@
 import React from 'react';
-import {TouchableOpacity, Text, Image, View} from 'react-native';
+import {TouchableOpacity, Text, View, ImageBackground} from 'react-native';
 
 import styles from './ComicCard.styles';
 
 const ComicCard = ({comic, onPress}) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <Image
-        style={styles.image}
-        source={{uri: `${comic.thumbnail.path}.jpg`}}
-      />
-      <View>
-        <Text>{comic.title}</Text>
+      <View style={styles.container}>
+        <ImageBackground
+          style={styles.image}
+          source={{uri: `${comic.thumbnail.path}.jpg`}}
+        />
+        <Text style={styles.title}>{comic.title}</Text>
       </View>
     </TouchableOpacity>
   );
