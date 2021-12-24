@@ -1,7 +1,12 @@
 import React from 'react';
 
+import FavoritesProvider from './Context/FavoritesContext/FavoritesProvider';
 import Navigation from './navigation';
 
 export default function App() {
-  return <Navigation />;
+  return (
+    <FavoritesProvider>
+      <Navigation />
+    </FavoritesProvider>
+  );
 }

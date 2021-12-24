@@ -4,8 +4,9 @@ export default function (state, action) {
       const selectedComic = action.payload.comic;
 
       const currentFavoriteComic = state.favoritesList.findIndex(
-        item => item === selectedComic,
+        item => item.id === selectedComic.id,
       );
+
       const isInFavorite = currentFavoriteComic !== -1;
 
       if (isInFavorite) {
@@ -15,15 +16,16 @@ export default function (state, action) {
       const updatedFavorites = [...state.favoritesList, selectedComic];
       return {...state, favoritesList: updatedFavorites};
     }
+
     case 'DELETE_FROM_FAVORITES': {
       const selectedComic = action.payload.comic;
 
-      const currentFavoriteComic = state.favoritesList.findIndex(
-        item => item === selectedComic,
+      const comicFavoritesIndex = state.favoritesList.findIndex(
+        item => item.id === selectedComic.id,
       );
 
       const updatedFavoritesList = [...state.favoritesList];
-      updatedFavoritesList.splice(currentFavoriteComic, 1);
+      updatedFavoritesList.splice(comicFavoritesIndex, 1);
       return {...state, favoritesList: updatedFavoritesList};
     }
 

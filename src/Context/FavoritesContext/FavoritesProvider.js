@@ -4,7 +4,7 @@ import store from './store';
 
 export const FavoritesContext = createContext();
 
-const ComicProvider = ({children}) => {
+const FavoritesProvider = ({children}) => {
   const [state, dispatch] = useReducer(reducer, store);
   return (
     <FavoritesContext.Provider value={{state, dispatch}}>
@@ -13,4 +13,4 @@ const ComicProvider = ({children}) => {
   );
 };
 
-export default ComicProvider;
+export default FavoritesProvider;

@@ -1,19 +1,31 @@
 import React from 'react';
-import {TouchableOpacity, Text, Image, View} from 'react-native';
+import {
+  TouchableOpacity,
+  Text,
+  Image,
+  View,
+  TouchableWithoutFeedback,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import styles from './ComicCard.styles';
 
-const ComicCard = ({comic, onPress}) => {
+const ComicCard = ({comics, onDetail, onFavoritePress}) => {
   return (
-    <TouchableOpacity onPress={onPress}>
-      <Image
-        style={styles.image}
-        source={{uri: `${comic.thumbnail.path}.jpg`}}
-      />
+    <TouchableWithoutFeedback onPress={onDetail}>
       <View>
-        <Text style={{color: 'black'}}>{comic.title}</Text>
+        <Image
+          style={styles.image}
+          source={{uri: `${comics.thumbnail.path}.jpg`}}
+        />
+        <View>
+          <Text style={{color: 'black'}}>{comics.title}</Text>
+        </View>
+        <TouchableOpacity onPress={onFavoritePress}>
+          <Icon name="cards-heart" size={24} />
+        </TouchableOpacity>
       </View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
 };
 

@@ -54,6 +54,7 @@ const DetailPage = () => {
         <View key={k}>
           <Text>{data.title}</Text>
           <Image
+            // eslint-disable-next-line react-native/no-inline-styles
             style={{width: 200, height: 200}}
             source={{uri: `${data.thumbnail.path}.jpg`}}
           />
