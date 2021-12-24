@@ -4,7 +4,7 @@ export default function (state, action) {
       const selectedComic = action.payload.comic;
 
       const currentFavoriteComic = state.favoritesList.findIndex(
-        item => item.id === selectedComic.id,
+        item => item === selectedComic,
       );
 
       const isInFavorite = currentFavoriteComic !== -1;
@@ -21,7 +21,7 @@ export default function (state, action) {
       const selectedComic = action.payload.comic;
 
       const comicFavoritesIndex = state.favoritesList.findIndex(
-        item => item.id === selectedComic.id,
+        item => item === selectedComic,
       );
 
       const updatedFavoritesList = [...state.favoritesList];
