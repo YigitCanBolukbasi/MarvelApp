@@ -30,7 +30,7 @@ const MainPage = () => {
     <ComicCard
       comics={item}
       onDetail={() => handleComicDetail(item.id)}
-      onFavoritePress={() => handleAddFavorites(item.id)}
+      onFavoritePress={() => handleAddFavorites(item)}
     />
   );
   return (
