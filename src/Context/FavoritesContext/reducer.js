@@ -29,7 +29,7 @@ export default function (state, action) {
 
       const updatedFavoritesList = [...state.favoritesList];
       updatedFavoritesList.splice(currentFavoriteComic, 1);
-      AsyncStorage.setItem('@favorites', JSON.stringify(updatedFavorites));
+      AsyncStorage.setItem('@favorites', JSON.stringify(updatedFavoritesList));
       return {...state, favoritesList: updatedFavoritesList};
     }
 

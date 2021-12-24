@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, Text, View, TextInput} from 'react-native';
+import {Text, View, TextInput} from 'react-native';
 
 import styles from './Input.styles';
 

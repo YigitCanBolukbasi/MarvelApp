@@ -14,7 +14,6 @@ import Config from 'react-native-config';
 import Html from 'react-native-render-html';
 
 import useFetch from '../../hooks/useFetch/useFetch';
-// import ComicDetail from '../../components/ComicDetail/ComicDetail';
 
 const DetailPage = () => {
   const {width} = useWindowDimensions();
@@ -25,8 +24,7 @@ const DetailPage = () => {
     loading,
     error,
   } = useFetch(
-    `https://gateway.marvel.com:443/v1/public/comics/${id}?ts=1&apikey=2bf3b8fe6dedde5d3df4920e6df21214&hash=3daa12a3fa29fab4e305a83ef7ef09ec
-    `,
+    `${Config.API_URL}/comics/${id}?ts=1&apikey=${Config.API_KEY}&hash=${Config.API_HASH}`,
   );
 
   if (loading) {
