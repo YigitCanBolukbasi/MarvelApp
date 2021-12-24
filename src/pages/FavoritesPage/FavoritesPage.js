@@ -18,7 +18,7 @@ const FavoritesPage = () => {
   const renderFavoriteCard = ({item}) => (
     <FavoriteCard
       comics={item}
-      onDeleteFavorite={() => handleDeleteFavorites()}
+      onDeleteFavorite={() => handleDeleteFavorites(item)}
     />
   );
 

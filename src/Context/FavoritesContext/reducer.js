@@ -20,12 +20,12 @@ export default function (state, action) {
     case 'DELETE_FROM_FAVORITES': {
       const selectedComic = action.payload.comic;
 
-      const comicFavoritesIndex = state.favoritesList.findIndex(
+      const currentFavoriteComic = state.favoritesList.findIndex(
         item => item === selectedComic,
       );
 
       const updatedFavoritesList = [...state.favoritesList];
-      updatedFavoritesList.splice(comicFavoritesIndex, 1);
+      updatedFavoritesList.splice(currentFavoriteComic, 1);
       return {...state, favoritesList: updatedFavoritesList};
     }
 
