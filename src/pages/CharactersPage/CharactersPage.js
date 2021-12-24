@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {FlatList, SafeAreaView, Text, View, Image} from 'react-native';
 import Config from 'react-native-config';
 
@@ -6,9 +6,28 @@ import useFetch from '../../hooks/useFetch';
 import SearchBar from '../../components/Input';
 
 const CharactersPage = () => {
+  const [characterSearch, setCharacterSearch] = useState();
   const {data: characterData} = useFetch(
-    `${Config.API_URL}/characters?ts=1&apikey=${Config.API_KEY}&hash=${Config.API_HASH}`,
+    `https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=2bf3b8fe6dedde5d3df4920e6df21214&hash=3daa12a3fa29fab4e305a83ef7ef09ec`,
   );
+  useEffect(() => {
+    if (characterData !== null) {
+      setCharacterSearch(characterData);
+    }
+  }, [characterData]);
+
+  const handleSearchCharacter = text => {
+    if (text !== null || text !== '') {
+      const filteredCharacter = characterData.filter(characters => {
+        const searchText = text.toLowerCase();
+        const currentCharacter = characters.name.toLowerCase();
+        return currentCharacter.indexOf(searchText) > -1;
+      });
+      setCharacterSearch(filteredCharacter);
+      return;
+    }
+    setCharacterSearch(characterData);
+  };
 
   const renderCharacter = ({item}) => {
     return (
@@ -25,8 +44,16 @@ const CharactersPage = () => {
   return (
     <SafeAreaView>
       <Text>Characters</Text>
-      <SearchBar label="Arama" placeholder="Arama Yapın." />
-      <FlatList data={characterData} renderItem={renderCharacter} />
+      <SearchBar
+        label="Arama"
+        placeholder="Arama Yapın."
+        onChangeText={handleSearchCharacter}
+      />
+      <FlatList
+        data={characterSearch}
+        renderItem={renderCharacter}
+        keyExtractor={item => item.id}
+      />
     </SafeAreaView>
   );
 };

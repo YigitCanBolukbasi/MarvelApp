@@ -24,7 +24,7 @@ const DetailPage = () => {
     loading,
     error,
   } = useFetch(
-    `${Config.API_URL}/comics/${id}?ts=1&apikey=${Config.API_KEY}&hash=${Config.API_HASH}`,
+    `https://gateway.marvel.com:443/v1/public/comics/${id}?ts=1&apikey=2bf3b8fe6dedde5d3df4920e6df21214&hash=3daa12a3fa29fab4e305a83ef7ef09ec`,
   );
 
   if (loading) {
