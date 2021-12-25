@@ -11,7 +11,7 @@ export default {
       alignItems: 'center',
     },
     label: {
-      color: colors.darkTheme.secondary,
+      color: colors.darkTheme.secondaryText,
       fontWeight: 'bold',
     },
   }),
@@ -24,7 +24,7 @@ export default {
       alignItems: 'center',
     },
     label: {
-      color: colors.lightTheme.secondary,
+      color: colors.lightTheme.secondaryText,
       fontWeight: 'bold',
     },
   }),

@@ -1,11 +1,13 @@
 import React, {useContext} from 'react';
-import {FlatList, SafeAreaView} from 'react-native';
+import {FlatList, SafeAreaView, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Config from 'react-native-config';
 
 import useFetch from '../../hooks/useFetch';
 import ComicCard from '../../components/ComicCard/ComicCard';
 import {FavoritesContext} from '../../Context/FavoritesContext/FavoritesProvider';
+import Modal from '../../components/Modal/Modal';
+import Button from '../../components/Button/Button';
 
 const MainPage = () => {
   const navigation = useNavigation();
@@ -39,8 +41,11 @@ const MainPage = () => {
   );
   return (
     <SafeAreaView>
+      <View style={{height: 40}}>
+        <Modal />
+      </View>
       {/* */}
-      <FlatList data={data} renderItem={renderComicCard} />
+      <FlatList data={data} renderItem={renderComicCard} horizontal />
     </SafeAreaView>
   );
 };
