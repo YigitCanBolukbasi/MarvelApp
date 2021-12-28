@@ -9,9 +9,13 @@ import {useTranslation} from 'react-i18next';
 import styles from './modal.styles';
 import Button from '../Button/Button';
 
-const options = [
+const optionsLanguage = [
   {label: 'English', value: 'en'},
   {label: 'Turkish', value: 'tr'},
+];
+const optionsTheme = [
+  {label: 'DarkMode', value: 'DarkMode'},
+  {label: 'LightMode', value: 'LightMode'},
 ];
 
 const SwitchModal = () => {
@@ -37,11 +41,33 @@ const SwitchModal = () => {
             <Text style={styles.text_language}>{t('Language')}</Text>
             <SwitchSelector
               style={styles.language_switch}
-              options={options}
+              options={optionsLanguage}
               initial={0}
               onPress={language => {
                 i18n.changeLanguage(language);
               }}
+              textColor={'#E68C38'}
+              selectedColor={'#FFFFFF'}
+              buttonColor={'#E68C38'}
+              borderColor={'#212121'}
+              hasPadding
+            />
+          </View>
+
+          <View style={styles.language_body}>
+            <Text style={styles.text_language}>{t('Theme')}</Text>
+            <SwitchSelector
+              style={styles.language_switch}
+              options={optionsTheme}
+              initial={0}
+              onPress={() => {
+                null;
+              }}
+              textColor={'#E68C38'}
+              selectedColor={'#FFFFFF'}
+              buttonColor={'#E68C38'}
+              borderColor={'#212121'}
+              hasPadding
             />
           </View>
           {/* <Button label={'Exit'} onPress={toggleModal} theme="lightTheme" /> */}
