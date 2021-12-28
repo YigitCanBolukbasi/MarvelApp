@@ -2,29 +2,35 @@ import {StyleSheet, Dimensions} from 'react-native';
 
 export default StyleSheet.create({
   image: {
-    width: (Dimensions.get('screen').width * 2) / 3,
-    height: (Dimensions.get('screen').height * 2) / 3,
+    width: Dimensions.get('screen').width * 0.7,
+    height: Dimensions.get('screen').width * 1.3,
     resizeMode: 'contain',
+    margin: 15,
   },
   container: {
-    flex: 1,
-    margin: 20,
-    borderRadius: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 30,
+    borderWidth: 1,
+    borderColor: '#E68C38',
+    margin: 5,
   },
   body_container: {
     position: 'absolute',
-    top: 400,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    margin: 10,
+    top: 470,
+    left: 15,
+    right: 15,
+    bottom: 80,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    padding: 10,
   },
   title: {
-    color: 'blue',
+    color: '#E68C38',
     fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: 20,
   },
   icon: {
-    color: '#212121',
+    color: '#E68C38',
+    marginBottom: 15,
   },
 });
