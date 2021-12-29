@@ -1,14 +1,17 @@
 import React from 'react';
-import {Text, View, TextInput} from 'react-native';
+import {View, TextInput} from 'react-native';
 
 import styles from './Input.styles';
 
-function Input({label, ...otherProps}) {
+function Input({...otherProps}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
       <View style={styles.input_container}>
-        <TextInput style={styles.input} {...otherProps} />
+        <TextInput
+          placeholderTextColor="#000000"
+          style={styles.input}
+          {...otherProps}
+        />
       </View>
     </View>
   );

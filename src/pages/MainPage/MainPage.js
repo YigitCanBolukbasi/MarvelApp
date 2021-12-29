@@ -1,25 +1,30 @@
 import React, {useContext} from 'react';
-import {FlatList, SafeAreaView, View} from 'react-native';
+import {FlatList, SafeAreaView} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Config from 'react-native-config';
 
 import useFetch from '../../hooks/useFetch';
 import ComicCard from '../../components/ComicCard/ComicCard';
 import {FavoritesContext} from '../../Context/FavoritesContext/FavoritesProvider';
-import Modal from '../../components/Modal/Modal';
 import routes from '../../navigation/routes';
-import Button from '../../components/Button/Button';
+import Loading from '../../components/Loading';
+import Error from '../../components/Error';
 
 const MainPage = () => {
   const navigation = useNavigation();
   const {dispatch} = useContext(FavoritesContext);
-  const {data} = useFetch(
-    `https://gateway.marvel.com:443/v1/public/comics?format=comic&formatType=comic&ts=1&apikey=2bf3b8fe6dedde5d3df4920e6df21214&hash=3daa12a3fa29fab4e305a83ef7ef09ec`,
+
+  const {data, loading, error} = useFetch(
+    `${Config.API_URL}/comics?format=comic&formatType=comic&ts=1&apikey=${Config.API_KEY}&hash=${Config.API_HASH}`,
   );
 
-  // const {data} = useFetch(
-  //   `${Config.API_URL}/comics?format=comic&formatType=comic&ts=1&apikey=${Config.API_KEY}&hash=${Config.API_HASH}`,
-  // );
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return <Error />;
+  }
 
   const handleAddFavorites = comic =>
     dispatch({
@@ -42,14 +47,12 @@ const MainPage = () => {
   );
   return (
     <SafeAreaView>
-      <View style={{height: 40}}>
-        <Modal />
-      </View>
       <FlatList
         data={data}
         renderItem={renderComicCard}
         horizontal
         pagingEnabled
+        showsHorizontalScrollIndicator={false}
       />
     </SafeAreaView>
   );

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const useFetch = url => {
   const [data, setData] = useState();
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
@@ -11,7 +11,7 @@ const useFetch = url => {
       const response = await axios.get(url);
       setData(response.data.data.results);
     } catch (err) {
-      setError(err.message);
+      setError(err);
     } finally {
       setLoading(false);
     }

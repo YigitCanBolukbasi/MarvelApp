@@ -2,7 +2,7 @@ import React from 'react';
 import {
   TouchableOpacity,
   Text,
-  ImageBackground,
+  Image,
   View,
   TouchableWithoutFeedback,
 } from 'react-native';
@@ -14,7 +14,7 @@ const ComicCard = ({comics, onDetail, onFavoritePress}) => {
   return (
     <TouchableWithoutFeedback onPress={onDetail}>
       <View style={styles.container}>
-        <ImageBackground
+        <Image
           style={styles.image}
           source={{uri: `${comics.thumbnail.path}.jpg`}}
         />
