@@ -9,6 +9,11 @@
     "Characters": "Karakterler",
     "Favorites": "Favoriler",
     "ComicDetail": "Çizgi Roman Detayı",
-    "SearchCharacter": "Karakter Arama"
+    "SearchCharacter": "Karakter Arama",
+    "Theme": "Tema",
+    "MainPage": "Ana Sayfa",
+    "SearchPage": "AramaSayfası",
+    "FavPage": "Favori Sayfası",
+    "DetailPage": "DetailSayfası"
   }
 }

@@ -3,14 +3,17 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import MainPage from '../../pages/MainPage';
 import DetailPage from '../../pages/DetailPage';
+import {useTranslation} from 'react-i18next';
+import routes from '../routes';
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigation = () => {
+  const {t, i18n} = useTranslation();
   return (
     <Stack.Navigator>
-      <Stack.Screen name="MainPage" component={MainPage} />
-      <Stack.Screen name="DetailPage" component={DetailPage} />
+      <Stack.Screen name={t(routes.Main_page)} component={MainPage} />
+      <Stack.Screen name={routes.Detail_Page} component={DetailPage} />
     </Stack.Navigator>
   );
 };

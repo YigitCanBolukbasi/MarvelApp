@@ -45,7 +45,12 @@ const MainPage = () => {
         <Modal />
       </View>
       {/* */}
-      <FlatList data={data} renderItem={renderComicCard} horizontal />
+      <FlatList
+        data={data}
+        renderItem={renderComicCard}
+        horizontal
+        pagingEnabled
+      />
     </SafeAreaView>
   );
 };

@@ -12,34 +12,23 @@ export default StyleSheet.create({
     padding: 20,
     borderRadius: 20,
   },
-  language: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: 'black',
-    justifyContent: 'space-between',
+  language_body: {
+    margin: 5,
+    alignItems: 'center',
   },
   text_language: {
-    fontSize: 20,
-    color: 'black',
+    color: color.darkTheme.primary,
     fontWeight: 'bold',
-  },
-  switch_language: {},
-
-  theme: {
-    flexDirection: 'row',
+    fontSize: 25,
+    marginBottom: 5,
     borderBottomWidth: 1,
-    borderBottomColor: 'black',
-    justifyContent: 'space-between',
+    borderBottomColor: color.darkTheme.primary,
   },
+  language_switch: {},
 
-  text_theme: {
-    fontSize: 20,
-    color: 'black',
-    fontWeight: 'bold',
-  },
   icon_exit: {
     color: color.lightTheme.primary,
-    alignSelf: 'flex-end',
+    alignSelf: 'center',
     marginTop: 10,
   },
 });

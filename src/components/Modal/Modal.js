@@ -1,12 +1,23 @@
 import React, {useState} from 'react';
-import {Text, View, TouchableOpacity, I18nManager} from 'react-native';
+import {Text, View, TouchableOpacity} from 'react-native';
 
 import {useTranslation} from 'react-i18next';
 import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import SwitchSelector from 'react-native-switch-selector';
 
 import styles from './modal.styles';
 import Button from '../Button';
+
+const optionsLanguage = [
+  {label: 'English', value: 'en'},
+  {label: 'Turkish', value: 'tr'},
+];
+
+const optionsTheme = [
+  {label: 'DarkMode', value: 'DarkMode'},
+  {label: 'LightMode', value: 'LightMode'},
+];
 
 const SwitchModal = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -16,31 +27,46 @@ const SwitchModal = () => {
     setModalVisible(!isModalVisible);
   };
 
-  const onChangeLanguage = () => {
-    i18n.changeLanguage(i18n.language === 'tr' ? 'en' : 'tr').then(() => {
-      I18nManager.forceRTL(i18n.language === 'tr');
-    });
-  };
-
   return (
     <View style={styles.container}>
-      <Button label={'settings'} onPress={toggleModal} />
+      <Button label={'Settings'} onPress={toggleModal} />
       <Modal
         isVisible={isModalVisible}
         animationIn={'slideInUp'}
         animationOut={'slideOutDown'}>
         <View style={styles.container_body}>
-          <View style={styles.language}>
-            <Text style={styles.text_language}>
-              {t('Language') ? 'English' : 'Türkçe'}
-            </Text>
-            <Button label="Switch Language" onPress={onChangeLanguage} />
+          <View style={styles.language_body}>
+            <Text style={styles.text_language}>{t('Language')}</Text>
+            <SwitchSelector
+              style={styles.language_switch}
+              options={optionsLanguage}
+              initial={0}
+              onPress={language => {
+                i18n.changeLanguage(language);
+              }}
+              textColor={'#E68C38'}
+              selectedColor={'#FFFFFF'}
+              buttonColor={'#E68C38'}
+              borderColor={'#212121'}
+              hasPadding
+            />
           </View>
-          <View style={styles.theme}>
-            <Text style={styles.text_theme}>
-              {/* Dark Mode : {switchTheme ? 'On' : 'Off'} */}
-            </Text>
-            {/* <Switch value={switchTheme} onValueChange={toggleSwitchTheme} /> */}
+
+          <View style={styles.language_body}>
+            <Text style={styles.text_language}>{t('Theme')}</Text>
+            <SwitchSelector
+              style={styles.language_switch}
+              options={optionsTheme}
+              initial={0}
+              onPress={() => {
+                null;
+              }}
+              textColor={'#E68C38'}
+              selectedColor={'#FFFFFF'}
+              buttonColor={'#E68C38'}
+              borderColor={'#212121'}
+              hasPadding
+            />
           </View>
           {/* <Button label={'Exit'} onPress={toggleModal} theme="lightTheme" /> */}
           <TouchableOpacity onPress={toggleModal}>
