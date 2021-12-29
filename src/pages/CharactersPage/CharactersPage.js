@@ -11,7 +11,7 @@ const CharactersPage = () => {
   const {data: characterData} = useFetch(
     `https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=2bf3b8fe6dedde5d3df4920e6df21214&hash=3daa12a3fa29fab4e305a83ef7ef09ec`,
   );
-  const {t, i18n} = useTranslation();
+  const {t} = useTranslation();
   useEffect(() => {
     if (characterData !== null) {
       setCharacterSearch(characterData);

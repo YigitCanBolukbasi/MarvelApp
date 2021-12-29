@@ -7,6 +7,7 @@ import useFetch from '../../hooks/useFetch';
 import ComicCard from '../../components/ComicCard/ComicCard';
 import {FavoritesContext} from '../../Context/FavoritesContext/FavoritesProvider';
 import Modal from '../../components/Modal/Modal';
+import routes from '../../navigation/routes';
 import Button from '../../components/Button/Button';
 
 const MainPage = () => {
@@ -29,7 +30,7 @@ const MainPage = () => {
     });
 
   const handleComicDetail = id => {
-    navigation.navigate('DetailPage', {id});
+    navigation.navigate(routes.Detail_Page, {id});
   };
 
   const renderComicCard = ({item}) => (
@@ -44,7 +45,6 @@ const MainPage = () => {
       <View style={{height: 40}}>
         <Modal />
       </View>
-      {/* */}
       <FlatList
         data={data}
         renderItem={renderComicCard}

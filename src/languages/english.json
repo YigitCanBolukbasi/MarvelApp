@@ -9,6 +9,10 @@
     "Characters": "Characters",
     "Favorites": "Favorites",
     "ComicDetail": "Comic Detail",
-    "SearchCharacter": "Search Character"
+    "SearchCharacter": "Search Character",
+    "MainPage": "Main Page",
+    "SearchPage": "Character Search",
+    "FavPage": "Favorites Page",
+    "DetailPage": "Detail Page"
   }
 }

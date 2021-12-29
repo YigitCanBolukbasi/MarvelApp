@@ -1,5 +1,5 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import color from '../../styles/colors';
+import {StyleSheet} from 'react-native';
+import colors from '../../styles/colors';
 
 export default StyleSheet.create({
   container: {
@@ -17,17 +17,17 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   text_language: {
-    color: color.darkTheme.primary,
+    color: colors.text,
     fontWeight: 'bold',
     fontSize: 25,
     marginBottom: 5,
     borderBottomWidth: 1,
-    borderBottomColor: color.darkTheme.primary,
+    borderBottomColor: colors.primary,
   },
   language_switch: {},
 
   icon_exit: {
-    color: color.lightTheme.primary,
+    color: colors.text,
     alignSelf: 'center',
     marginTop: 10,
   },

@@ -33,6 +33,10 @@ export default function (state, action) {
       return {...state, favoritesList: updatedFavoritesList};
     }
 
+    case 'SET_DATA':
+      const favorites = action.payload;
+      return {...state, favoritesList: favorites};
+
     default:
       return state;
   }

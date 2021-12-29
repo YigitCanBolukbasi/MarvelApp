@@ -1,6 +1,7 @@
 export default {
-  Main_page: 'MainPage',
-  Search_page: 'SearchPage',
-  Fav_Page: 'FavPage',
-  Detail_Page: 'DetailPage',
+  Main_page: 'Main Page',
+  Main_Stack: 'Main_Page',
+  Search_page: 'Search Page',
+  Fav_Page: 'Favorites Page',
+  Detail_Page: 'Detail Page',
 };

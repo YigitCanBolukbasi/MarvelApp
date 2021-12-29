@@ -2,17 +2,19 @@ import React from 'react';
 import {TouchableOpacity, Image, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import styles from './FavoriteCard.styles';
+
 const FavoriteCard = ({comics, onDeleteFavorite}) => {
   return (
     <View>
       <TouchableOpacity onPress={onDeleteFavorite}>
-        <Icon name="delete" size={24} />
+        <Icon style={styles.icon} name="delete" size={24} />
       </TouchableOpacity>
       <Image
-        style={{width: 200, height: 200}}
+        style={styles.image}
         source={{uri: `${comics.thumbnail.path}.jpg`}}
       />
-      <Text>{comics.title}</Text>
+      <Text style={styles.title}>{comics.title}</Text>
     </View>
   );
 };

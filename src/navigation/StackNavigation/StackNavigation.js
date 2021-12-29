@@ -9,11 +9,23 @@ import routes from '../routes';
 const Stack = createNativeStackNavigator();
 
 const StackNavigation = () => {
-  const {t, i18n} = useTranslation();
+  const {t} = useTranslation();
   return (
     <Stack.Navigator>
-      <Stack.Screen name={t(routes.Main_page)} component={MainPage} />
-      <Stack.Screen name={routes.Detail_Page} component={DetailPage} />
+      <Stack.Screen
+        name={routes.Main_page}
+        component={MainPage}
+        options={{
+          title: t('MainPage'),
+        }}
+      />
+      <Stack.Screen
+        name={routes.Detail_Page}
+        component={DetailPage}
+        options={{
+          title: t('DetailPage'),
+        }}
+      />
     </Stack.Navigator>
   );
 };
